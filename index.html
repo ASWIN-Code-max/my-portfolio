@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aswin P | Senior .NET Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #fbbf24;
+            --bg-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+            nav .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+            nav a:hover {
+                color: var(--primary);
+            }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            font-weight: 800;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+
+            50% {
+                border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%;
+            }
+
+            100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+
+        .hero .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 100px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+            h2::after {
+                content: "";
+                height: 1px;
+                flex-grow: 1;
+                background: var(--glass-border);
+            }
+
+        /* --- Skills --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+            .skill-tag:hover {
+                border-color: var(--primary);
+                background: rgba(99, 102, 241, 0.1);
+                transform: translateY(-3px);
+            }
+
+        /* --- Project Cards --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 32px;
+            border-radius: 20px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+            .project-card:hover {
+                transform: translateY(-10px);
+                background: rgba(255, 255, 255, 0.05);
+                border-color: var(--secondary);
+            }
+
+            .project-card h3 {
+                color: var(--accent);
+                margin-bottom: 12px;
+            }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            background: rgba(99, 102, 241, 0.2);
+            color: #c7d2fe;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* --- Chat Interface --- */
+        .ai-chat-container {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            height: 350px;
+            padding: 24px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .message-content {
+            background: var(--glass-border);
+            padding: 12px 18px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            max-width: 80%;
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            display: flex;
+            gap: 12px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        input.chat-input {
+            flex: 1;
+            background: var(--bg-dark);
+            border: 1px solid var(--glass-border);
+            padding: 14px;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+        }
+
+        .send-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* --- Experience/Education Timeline --- */
+        .timeline-item {
+            border-left: 2px solid var(--glass-border);
+            padding-left: 24px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+
+            .timeline-item::before {
+                content: "";
+                width: 12px;
+                height: 12px;
+                background: var(--primary);
+                border-radius: 50%;
+                position: absolute;
+                left: -7px;
+                top: 5px;
+            }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">ASWIN.P</div>
+            <ul>
+                <li><a href="#home">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#ai-chat">AI Assistant</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="hero">
+            <div class="profile-container">
+                <div class="profile-image">AP</div>
+            </div>
+            <h1>Aswin P</h1>
+            <p class="subtitle">&lt; Senior .NET Backend Developer /&gt;</p>
+            <p style="max-width: 650px; margin: 0 auto; color: var(--text-dim);">
+                Transforming complex business logic into scalable backend architectures.
+                Currently engineering high-performance travel solutions at <strong>Akbar Travels</strong>.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">.NET Core</div>
+                <div class="skill-tag">C#</div>
+                <div class="skill-tag">Web API</div>
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">SQL Server</div>
+                <div class="skill-tag">LINQ</div>
+                <div class="skill-tag">Microservices</div>
+                <div class="skill-tag">MVC</div>
+                <div class="skill-tag">ASP.NET</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Layered Architecture</div>
+                <div class="skill-tag">VB.NET</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Flight Revamp B2B</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">High-traffic ticketing engine utilizing Layered Architecture and complex MySQL optimizations.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Web API</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Rail Revamp IRCTC</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Modernizing train ticket booking with .NET Core, focusing on concurrency and real-time data.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">.NET Core</span>
+                        <span class="tech-tag">LINQ</span>
+                        <span class="tech-tag">API Integration</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Vendor Management</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Full-cycle CRUD system with advanced data controls for enterprise resource tracking.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ASP.NET</span>
+                        <span class="tech-tag">SQL Server</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Career Journey</h2>
+            <div class="timeline-item">
+                <h3 style="color: var(--primary);">Senior Software Developer</h3>
+                <p><strong>Benzy Infotech (Akbar Travels)</strong> • 2021 — Present</p>
+                <p style="color: var(--text-dim); margin-top: 10px;">Leading the architectural revamp of core booking modules from VB to C#. Optimizing backend performance for one of India's largest travel portals.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Software Trainee</h3>
+                <p><strong>EazyLearn Software Training</strong> • 2021</p>
+                <p style="color: var(--text-dim); margin-top: 10px;">Intensive focus on enterprise application patterns and the .NET ecosystem.</p>
+            </div>
+        </section>
+
+        <section id="ai-chat">
+            <h2>Talk to my Agent</h2>
+            <div class="ai-chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message-content" style="background: var(--primary);">
+                        Hi! I'm Aswin's AI assistant. Want to know about his experience with .NET Core or his work at Akbar Travels?
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" placeholder="Type a question..." id="userInput">
+                    <button class="send-btn" onclick="handleChat()">Send</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Aswin P • Senior Backend Developer</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Built with .NET Spirit & Modern CSS</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleChat() {
+            const input = document.getElementById('userInput');
+            const container = document.getElementById('chatMessages');
+
+            if (input.value.trim() === "") return;
+
+            // Add User Message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'message-content';
+            userDiv.style.marginLeft = 'auto';
+            userDiv.style.background = 'rgba(255,255,255,0.1)';
+            userDiv.textContent = input.value;
+            container.appendChild(userDiv);
+
+            // Mock AI Response (Since we can't call real Anthropic without a server-side proxy for security)
+            setTimeout(() => {
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'message-content';
+                aiDiv.style.background = 'var(--primary)';
+                aiDiv.textContent = "That's a great question! Aswin has over 3 years of experience specializing in .NET Backend development and travel domain APIs.";
+                container.appendChild(aiDiv);
+                container.scrollTop = container.scrollHeight;
+            }, 600);
+
+            input.value = "";
+            container.scrollTop = container.scrollHeight;
+        }
+    </script>
+</body>
+</html>
